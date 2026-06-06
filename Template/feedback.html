@@ -1,43 +1,59 @@
-{% extends "base.html" %}
-
-{% load static %}
-{% block class %}class="sub_page"{% endblock class %}
-{% block feedback_status %}active{% endblock feedback_status %}
-{% block main %}
-
-  <!-- start feedback form -->
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>Burgger | Feedback</title>
+  <link rel="shortcut icon" href="/images/favicon.png" type="" />
+  <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" />
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" integrity="sha512-CruCP+TD3yXzlvvijET8wV5WxxEh5H8P4cmz0RFbKK6FlZ2sYl3AEsKlLPHbniXKSrDdFewhbmBK5skbdsASbQ==" crossorigin="anonymous" />
+  <link href="/css/font-awesome.min.css" rel="stylesheet" />
+  <link href="/css/style.css" rel="stylesheet" />
+  <link href="/css/responsive.css" rel="stylesheet" />
+  <style>.nav-user { display: flex; gap: 10px; align-items: center; }.nav-user .user-badge { background: #f8c6c6; color: #000; padding: 5px 10px; border-radius: 5px; font-weight: bold; }</style>
+</head>
+<body class="sub_page">
+  <header class="header_section">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg custom_nav-container ">
+        <a class="navbar-brand" href="/">
+          <span>Burgger</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class=""></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mx-auto ">
+            <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="/menu">Menu</a></li>
+            <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="/book_table">Book Table</a></li>
+            <li class="nav-item active"><a class="nav-link" href="/feedback">Feedback</a></li>
+          </ul>
+          <div class="user_option nav-user">
+            <span id="user-name" class="user-badge" style="display:none"></span>
+            <a id="login-link" href="/login" class="btn order_online">Login</a>
+            <button id="logout-link" class="btn btn-secondary" style="display:none">Logout</button>
+            <button id="cart-button" class="btn btn-primary" style="display:none"><i class="fa fa-shopping-cart"></i> Cart</button>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
   <section class="book_section layout_padding">
     <div class="container">
-      <div class="heading_container">
-        <h2>
-          Feedback Form
-        </h2>
-      </div>
+      <div class="heading_container"><h2>Feedback Form</h2></div>
       <div class="row">
         <div class="col-md-6">
           <div class="form_container">
-            <!-- Display messages here -->
-            {% if messages %}
-              <div class="alert alert-info">
-                {% for message in messages %}
-                  <p>{{ message }}</p>
-                {% endfor %}
-              </div>
-            {% endif %}
-
-            <form action="{% url 'Feedback_Form' %}" method="POST" enctype="multipart/form-data">
-              {% csrf_token %}
-              <div>
-                <input type="text" class="form-control" name="User_name" required placeholder="Your Name" />
-              </div>
-              <div class="mb-3">
-                <textarea class="form-control" id="exampleFormControlTextarea1" name="Description" rows="3" required placeholder="Describe your experience here"></textarea>
-              </div>
+            <form id="feedback-form" enctype="multipart/form-data">
+              <div><input type="text" class="form-control" name="User_name" required placeholder="Your Name" /></div>
+              <div class="mb-3"><textarea class="form-control" name="Description" rows="3" required placeholder="Describe your experience here"></textarea></div>
               <div>
                 <select class="form-control nice-select wide" required name="Rating">
-                  <option value="" disabled selected>
-                    Please Give Us Rating?
-                  </option>
+                  <option value="" disabled selected>Please Give Us Rating?</option>
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
@@ -45,21 +61,139 @@
                   <option value="5">5</option>
                 </select>
               </div>
-              <div>
-                <label for="formFileLg" class="form-label">Upload Image:</label>
-                <input class="form-control form-control-lg" name="Selfie" id="formFileLg" type="file">
-              </div>
-              <div class="btn_box">
-                <button type="submit">
-                  Submit
-                </button>
-              </div>
+              <div><label for="formFileLg" class="form-label">Upload Image:</label><input class="form-control form-control-lg" name="Selfie" id="formFileLg" type="file"></div>
+              <div class="btn_box"><button type="submit">Submit</button></div>
             </form>
+            <div id="feedback-message" class="mt-3"></div>
           </div>
         </div>
       </div>
     </div>
   </section>
-  <!-- end feedback form -->
-
-{% endblock main %}
+  <footer class="footer_section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 footer-col">
+          <div class="footer_contact">
+            <h4>Contact Us</h4>
+            <div class="contact_link_box">
+              <a href=""><i class="fa fa-map-marker" aria-hidden="true"></i><span>Location</span></a>
+              <a href=""><i class="fa fa-phone" aria-hidden="true"></i><span>Call +01 1234567890</span></a>
+              <a href=""><i class="fa fa-envelope" aria-hidden="true"></i><span>demo@gmail.com</span></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 footer-col">
+          <div class="footer_detail">
+            <a href="" class="footer-logo">Feane</a>
+            <p>Necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with</p>
+            <div class="footer_social">
+              <a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a>
+              <a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a>
+              <a href=""><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+              <a href=""><i class="fa fa-instagram" aria-hidden="true"></i></a>
+              <a href=""><i class="fa fa-pinterest" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 footer-col">
+          <h4>Opening Hours</h4>
+          <p>Everyday</p>
+          <p>10.00 Am -10.00 Pm</p>
+        </div>
+      </div>
+      <div class="footer-info"><p>&copy; <span id="displayYear"></span> All Rights Reserved By <a href="https://html.design/">Free Html Templates</a><br><br>&copy; <span id="displayYear"></span> Distributed By <a href="https://themewagon.com/" target="_blank">ThemeWagon</a></p></div>
+    </div>
+  </footer>
+  <div id="cart-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Your Cart</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        </div>
+        <div class="modal-body"><ul id="cart-items-list"></ul></div>
+        <div class="modal-footer"><button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button></div>
+      </div>
+    </div>
+  </div>
+  <script src="/js/jquery-3.4.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="/js/bootstrap.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+  <script src="https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
+  <script src="/js/custom.js"></script>
+  <script>
+    async function refreshUserUI() {
+      const loginLink = document.getElementById('login-link');
+      const logoutLink = document.getElementById('logout-link');
+      const userName = document.getElementById('user-name');
+      const cartButton = document.getElementById('cart-button');
+      try {
+        const response = await fetch('/api/user');
+        if (response.ok) {
+          const data = await response.json();
+          userName.textContent = data.user.username;
+          userName.style.display = 'inline-block';
+          loginLink.style.display = 'none';
+          logoutLink.style.display = 'inline-block';
+        } else {
+          userName.style.display = 'none';
+          loginLink.style.display = 'inline-block';
+          logoutLink.style.display = 'none';
+        }
+      } catch (error) {
+        console.error(error);
+        userName.style.display = 'none';
+        loginLink.style.display = 'inline-block';
+        logoutLink.style.display = 'none';
+      }
+      cartButton.style.display = 'inline-block';
+    }
+    async function showCart() {
+      try {
+        const response = await fetch('/api/cart');
+        const data = await response.json();
+        const list = document.getElementById('cart-items-list');
+        list.innerHTML = '';
+        if (data.items && data.items.length) {
+          data.items.forEach(item => {
+            const li = document.createElement('li');
+            li.textContent = `${item.name} - ${item.quantity} x $${item.price} = $${item.total}`;
+            list.appendChild(li);
+          });
+        } else {
+          list.innerHTML = '<li>Your cart is empty.</li>';
+        }
+        $('.modal').modal('show');
+      } catch (error) { console.error('Error fetching cart items:', error); }
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+      refreshUserUI();
+      document.getElementById('cart-button').addEventListener('click', showCart);
+      document.getElementById('logout-link').addEventListener('click', async () => {
+        await fetch('/api/logout', { method: 'POST' });
+        window.location.href = '/login';
+      });
+      document.getElementById('feedback-form').addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const form = event.target;
+        const formData = new FormData(form);
+        const response = await fetch('/api/feedback', { method: 'POST', body: formData });
+        const result = await response.json();
+        const msg = document.getElementById('feedback-message');
+        if (response.ok) {
+          msg.textContent = result.message;
+          msg.style.color = 'green';
+          form.reset();
+        } else {
+          msg.textContent = result.error;
+          msg.style.color = 'red';
+        }
+      });
+      document.getElementById('displayYear').textContent = new Date().getFullYear();
+    });
+  </script>
+</body>
+</html>

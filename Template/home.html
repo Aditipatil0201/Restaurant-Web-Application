@@ -1,11 +1,57 @@
-{% extends "base.html" %}
-{% block home_status %}active{% endblock home_status %}
 
-{% load static %}
-
-{% block slider %}
-
-    <!-- slider section -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>Burgger | Home</title>
+  <link rel="shortcut icon" href="/images/favicon.png" type="" />
+  <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" />
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" integrity="sha512-CruCP+TD3yXzlvvijET8wV5WxxEh5H8P4cmz0RFbKK6FlZ2sYl3AEsKlLPHbniXKSrDdFewhbmBK5skbdsASbQ==" crossorigin="anonymous" />
+  <link href="/css/font-awesome.min.css" rel="stylesheet" />
+  <link href="/css/style.css" rel="stylesheet" />
+  <link href="/css/responsive.css" rel="stylesheet" />
+  <style>
+    .nav-user { display: flex; gap: 10px; align-items: center; }
+    .nav-user .user-badge { background: #f8c6c6; color: #000; padding: 5px 10px; border-radius: 5px; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <div class="hero_area">
+    <div class="bg-box">
+      <img src="/images/hero-bg.jpg" alt="" />
+    </div>
+    <header class="header_section">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="/">
+            <span>Burgger</span>
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="#navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mx-auto ">
+              <li class="nav-item active"><a class="nav-link" href="/">Home</a></li>
+              <li class="nav-item"><a class="nav-link" href="/menu">Menu</a></li>
+              <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+              <li class="nav-item"><a class="nav-link" href="/book_table">Book Table</a></li>
+              <li class="nav-item"><a class="nav-link" href="/feedback">Feedback</a></li>
+            </ul>
+            <div class="user_option nav-user">
+              <span id="user-name" class="user-badge" style="display:none"></span>
+              <a id="login-link" href="/login" class="btn order_online">Login</a>
+              <button id="logout-link" class="btn btn-secondary" style="display:none">Logout</button>
+              <button id="cart-button" class="btn btn-primary" style="display:none">
+                <i class="fa fa-shopping-cart"></i> Cart
+              </button>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
     <section class="slider_section ">
       <div id="customCarousel1" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
@@ -14,88 +60,22 @@
               <div class="row">
                 <div class="col-md-7 col-lg-6 ">
                   <div class="detail-box">
-                    <h1>
-                      Fast Food Restaurant
-                    </h1>
-                    <p>
-                      Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni quos nihil ducimus libero ipsam.
-                    </p>
-                    {% comment %} <div class="btn-box">
-                      <a href="" class="btn1">
-                        Order Now
-                      </a>
-                    </div> {% endcomment %}
+                    <h1>Fast Food Restaurant</h1>
+                    <p>Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni quos nihil ducimus libero ipsam.</p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          {% comment "" %}
-          <div class="carousel-item ">
-            <div class="container ">
-              <div class="row">
-                <div class="col-md-7 col-lg-6 ">
-                  <div class="detail-box">
-                    <h1>
-                      Fast Food Restaurant
-                    </h1>
-                    <p>
-                      Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni quos nihil ducimus libero ipsam.
-                    </p>
-                    <div class="btn-box">
-                      <a href="" class="btn1">
-                        Order Now
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <div class="container ">
-              <div class="row">
-                <div class="col-md-7 col-lg-6 ">
-                  <div class="detail-box">
-                    <h1>
-                      Fast Food Restaurant
-                    </h1>
-                    <p>
-                      Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni quos nihil ducimus libero ipsam.
-                    </p>
-                    <div class="btn-box">
-                      <a href="" class="btn1">
-                        Order Now
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          {% endcomment %}
         </div>
         <div class="container">
           <ol class="carousel-indicators">
             <li data-target="#customCarousel1" data-slide-to="0" class="active"></li>
-            {% comment "" %}
-            <li data-target="#customCarousel1" data-slide-to="1"></li>
-            <li data-target="#customCarousel1" data-slide-to="2"></li>
-            {% endcomment %}
           </ol>
         </div>
       </div>
-
     </section>
-    <!-- end slider section -->
-    
-    {% endblock slider %}
-
-{% block main %}
-
-
-  <!-- offer section -->
-
+  </div>
   <section class="offer_section layout_padding-bottom">
     <div class="offer_container">
       <div class="container ">
@@ -103,138 +83,24 @@
           <div class="col-md-6  ">
             <div class="box ">
               <div class="img-box">
-                <img src="{% static 'images/o1.jpg' %}" alt="">
+                <img src="/images/o1.jpg" alt="" />
               </div>
               <div class="detail-box">
-                <h5>
-                  Tasty Thursdays
-                </h5>
-                <h6>
-                  <span>20%</span> Off
-                </h6>
-                <a href="">
-                  Order Now <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
-                    <g>
-                      <g>
-                        <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
-                     c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z" />
-                      </g>
-                    </g>
-                    <g>
-                      <g>
-                        <path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
-                     C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
-                     c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
-                     C457.728,97.71,450.56,86.958,439.296,84.91z" />
-                      </g>
-                    </g>
-                    <g>
-                      <g>
-                        <path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
-                     c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z" />
-                      </g>
-                    </g>
-                    <g>
-                    </g>
-                    <g>
-                    </g>
-                    <g>
-                    </g>
-                    <g>
-                    </g>
-                    <g>
-                    </g>
-                    <g>
-                    </g>
-                    <g>
-                    </g>
-                    <g>
-                    </g>
-                    <g>
-                    </g>
-                    <g>
-                    </g>
-                    <g>
-                    </g>
-                    <g>
-                    </g>
-                    <g>
-                    </g>
-                    <g>
-                    </g>
-                    <g>
-                    </g>
-                  </svg>
-                </a>
+                <h5>Tasty Thursdays</h5>
+                <h6><span>20%</span> Off</h6>
+                <a href="/menu">Order Now</a>
               </div>
             </div>
           </div>
           <div class="col-md-6  ">
             <div class="box ">
               <div class="img-box">
-                <img src="{% static 'images/o2.jpg' %}" alt="">
+                <img src="/images/o2.jpg" alt="" />
               </div>
               <div class="detail-box">
-                <h5>
-                  Pizza Days
-                </h5>
-                <h6>
-                  <span>15%</span> Off
-                </h6>
-                <a href="">
-                  Order Now <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
-                    <g>
-                      <g>
-                        <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
-                     c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z" />
-                      </g>
-                    </g>
-                    <g>
-                      <g>
-                        <path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
-                     C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
-                     c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
-                     C457.728,97.71,450.56,86.958,439.296,84.91z" />
-                      </g>
-                    </g>
-                    <g>
-                      <g>
-                        <path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
-                     c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z" />
-                      </g>
-                    </g>
-                    <g>
-                    </g>
-                    <g>
-                    </g>
-                    <g>
-                    </g>
-                    <g>
-                    </g>
-                    <g>
-                    </g>
-                    <g>
-                    </g>
-                    <g>
-                    </g>
-                    <g>
-                    </g>
-                    <g>
-                    </g>
-                    <g>
-                    </g>
-                    <g>
-                    </g>
-                    <g>
-                    </g>
-                    <g>
-                    </g>
-                    <g>
-                    </g>
-                    <g>
-                    </g>
-                  </svg>
-                </a>
+                <h5>Pizza Days</h5>
+                <h6><span>15%</span> Off</h6>
+                <a href="/menu">Order Now</a>
               </div>
             </div>
           </div>
@@ -242,194 +108,161 @@
       </div>
     </div>
   </section>
-
-  <!-- end offer section -->
-
-  <!-- food section -->
-
   <section class="food_section layout_padding-bottom">
     <div class="container">
       <div class="heading_container heading_center">
-        <h2>
-          Our Menu
-        </h2>
+        <h2>Our Menu</h2>
       </div>
-
-      <ul class="filters_menu">
-        <li class="active" data-filter="*">All</li>
-        {% for i in list %}
-        <li data-filter=".{{i.Category_name}}">{{i.Category_name}}</li>
-        {% endfor %}
-      </ul>
-
       <div class="filters-content">
-        <div class="row grid">
-          {% for j in items %}
-          <div class="col-sm-6 col-lg-4 all {{j.Category}}">
-            <div class="box">
-              <div>
-                <div class="img-box">
-                  <img src="/media/{{j.Image}} " alt="{{j.Image}}">
-                </div>
-                <div class="detail-box">
-                  <h5>
-                    {{j.Item_name}}
-                  </h5>
-                  <p>
-                    {{j.description}}
-                  </p>
-                  <div class="options">
-                    <h6>
-                      ${{j.Price}}
-                    </h6>
-                    <button class="btn btn-success add-to-cart" data-item-id="{{j.id}}" data-item-name="{{j.Item_name}}" data-item-price="{{j.Price}}">
-                      Add to Cart
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          {% endfor %}
-        </div>
-      </div>
-      <div class="btn-box">
-        <a href="">
-          View More
-        </a>
+        <div class="row grid" id="home-menu-items"></div>
       </div>
     </div>
   </section>
-
-  <!-- end food section -->
-  
-  <!-- book section -->
   <section class="book_section layout_padding">
     <div class="container">
-      <div class="heading_container">
-        <h2>
-          Book A Table
-        </h2>
-      </div>
+      <div class="heading_container"><h2>Book A Table</h2></div>
       <div class="row">
         <div class="col-md-6">
           <div class="form_container">
-            <form action="{% url "Book_Table" %}" method='POST'>{% csrf_token %}
-              <div>
-                <input type="text" class="form-control" name="user_name" required placeholder="Your Name" />
-              </div>
-              <div>
-                <input type="text" class="form-control" name="phone_number" required placeholder="Phone Number" />
-              </div>
-              <div>
-                <input type="email" class="form-control" name="user_email" placeholder="Your Email" />
-              </div>
+            <form id="home-booking-form">
+              <div><input type="text" class="form-control" name="user_name" required placeholder="Your Name" /></div>
+              <div><input type="text" class="form-control" name="phone_number" required placeholder="Phone Number" /></div>
+              <div><input type="email" class="form-control" name="user_email" placeholder="Your Email" required /></div>
               <div>
                 <select class="form-control nice-select wide" required name="total_person">
-                  <option value="" disabled selected>
-                    How many persons?
-                  </option>
-                  <option value="2">
-                    2
-                  </option>
-                  <option value="3">
-                    3
-                  </option>
-                  <option value="4">
-                    4
-                  </option>
-                  <option value="5">
-                    5
-                  </option>
+                  <option value="" disabled selected>How many persons?</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
                 </select>
               </div>
-              <div>
-                <input type="date" required name="booking_data" class="form-control">
-              </div>
-              <div class="btn_box">
-                <button>
-                  Book Now
-                </button>
-              </div>
+              <div><input type="date" required name="booking_data" class="form-control" /></div>
+              <div class="btn_box"><button type="submit">Book Now</button></div>
             </form>
+            <div id="home-booking-message" class="mt-3"></div>
           </div>
         </div>
         <div class="col-md-6">
-          <div class="map_container ">
-            <div id="googleMap"></div>
-          </div>
+          <div class="map_container"><div id="googleMap" style="height: 400px; width: 100%;"></div></div>
         </div>
       </div>
     </div>
   </section>
-  <!-- end book section -->
-
-  <!-- client section -->
-
-  <section class="client_section layout_padding-bottom">
+  <footer class="footer_section">
     <div class="container">
-      <div class="heading_container heading_center psudo_white_primary mb_45">
-        <h2>
-          What Says Our Customers
-        </h2>
-      </div>
-      
-      <div class="carousel-wrap row ">
-        <div class="owl-carousel client_owl-carousel">
-          {% for k in review %}
-          <div class="item">
-            <div class="box">
-              <div class="detail-box">
-                <p>
-                  {{k.Description}}
-                </p>
-                <h6>
-                  {{k.User_name}}
-                </h6>
-                <p>
-                  Rating : {{k.Rating}}/5
-                </p>
-              </div>
-              <div class="img-box">
-                <img src="/media/{{k.Image}}" alt="{{k.Image}}" class="box-img">
-              </div>
+      <div class="row">
+        <div class="col-md-4 footer-col">
+          <div class="footer_contact">
+            <h4>Contact Us</h4>
+            <div class="contact_link_box">
+              <a href=""><i class="fa fa-map-marker" aria-hidden="true"></i><span>Location</span></a>
+              <a href=""><i class="fa fa-phone" aria-hidden="true"></i><span>Call +01 1234567890</span></a>
+              <a href=""><i class="fa fa-envelope" aria-hidden="true"></i><span>demo@gmail.com</span></a>
             </div>
           </div>
-          {% endfor %}
+        </div>
+        <div class="col-md-4 footer-col">
+          <div class="footer_detail">
+            <a href="" class="footer-logo">Feane</a>
+            <p>Necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with</p>
+            <div class="footer_social">
+              <a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a>
+              <a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a>
+              <a href=""><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+              <a href=""><i class="fa fa-instagram" aria-hidden="true"></i></a>
+              <a href=""><i class="fa fa-pinterest" aria-hidden="true"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 footer-col">
+          <h4>Opening Hours</h4>
+          <p>Everyday</p>
+          <p>10.00 Am -10.00 Pm</p>
         </div>
       </div>
-      
+      <div class="footer-info"><p>&copy; <span id="displayYear"></span> All Rights Reserved By <a href="https://html.design/">Free Html Templates</a><br><br>&copy; <span id="displayYear"></span> Distributed By <a href="https://themewagon.com/" target="_blank">ThemeWagon</a></p></div>
     </div>
-  </section>
-
-  <!-- end client section -->
-
+  </footer>
+  <div id="cart-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Your Cart</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        </div>
+        <div class="modal-body"><ul id="cart-items-list"></ul></div>
+        <div class="modal-footer"><button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button></div>
+      </div>
+    </div>
+  </div>
+  <script src="/js/jquery-3.4.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="/js/bootstrap.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+  <script src="https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
+  <script src="/js/custom.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
   <script>
-    document.querySelectorAll('.add-to-cart').forEach(button => {
-      button.addEventListener('click', function() {
-        const itemId = this.getAttribute('data-item-id');
-        const itemName = this.getAttribute('data-item-name');
-        const itemPrice = this.getAttribute('data-item-price');
-  
-        fetch('/add-to-cart/', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-            'X-CSRFTOKEN': '{{ csrf_token }}'
-          },
-          body: `item_id=${itemId}`
-        })
-        .then(response => response.json())
-        .then(data => {
-          if (data.message) {
-            alert(data.message);
-          } else {
-            alert('Failed to add item to cart.');
-          }
-        })
-        .catch(error => console.error('Error:', error));
+    function initMap() {
+      const restaurantLocation = { lat: 26.8467, lng: 80.9462 };
+      const map = new google.maps.Map(document.getElementById('googleMap'), { zoom: 14, center: restaurantLocation });
+      new google.maps.Marker({ position: restaurantLocation, map, title: 'Your Restaurant Name' });
+    }
+    async function refreshUserUI() {
+      const loginLink = document.getElementById('login-link');
+      const logoutLink = document.getElementById('logout-link');
+      const userName = document.getElementById('user-name');
+      const cartButton = document.getElementById('cart-button');
+      try {
+        const response = await fetch('/api/user');
+        if (response.ok) {
+          const data = await response.json();
+          userName.textContent = data.user.username;
+          userName.style.display = 'inline-block';
+          loginLink.style.display = 'none';
+          logoutLink.style.display = 'inline-block';
+        } else {
+          userName.style.display = 'none';
+          loginLink.style.display = 'inline-block';
+          logoutLink.style.display = 'none';
+        }
+      } catch (error) {
+        console.error(error);
+        userName.style.display = 'none';
+        loginLink.style.display = 'inline-block';
+        logoutLink.style.display = 'none';
+      }
+      cartButton.style.display = 'inline-block';
+    }
+    async function showCart() {
+      try {
+        const response = await fetch('/api/cart');
+        const data = await response.json();
+        const list = document.getElementById('cart-items-list');
+        list.innerHTML = '';
+        if (data.items && data.items.length) {
+          data.items.forEach(item => {
+            const li = document.createElement('li');
+            li.textContent = `${item.name} - ${item.quantity} x $${item.price} = $${item.total}`;
+            list.appendChild(li);
+          });
+        } else {
+          list.innerHTML = '<li>Your cart is empty.</li>';
+        }
+        $('.modal').modal('show');
+      } catch (error) { console.error('Error fetching cart items:', error); }
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+      refreshUserUI();
+      document.getElementById('cart-button').addEventListener('click', showCart);
+      document.getElementById('logout-link').addEventListener('click', async () => {
+        await fetch('/api/logout', { method: 'POST' });
+        window.location.href = '/login';
       });
+      document.getElementById('displayYear').textContent = new Date().getFullYear();
     });
   </script>
-  
-{% endblock main %}
+</body>
+</html>

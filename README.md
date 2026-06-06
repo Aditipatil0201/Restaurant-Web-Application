@@ -1,49 +1,61 @@
-# Restaurant-Web-Application
-Restaurant_Web_Project is a Django-based web application built to manage a restaurant's operations and customer interactions efficiently.
+﻿# Burgger Restaurant Web App
+A **Node.js + Express** restaurant web application with a static HTML frontend and a SQLite backend.
 
+## What is included
+- Express server handling static pages and JSON APIs
+- SQLite database stored in `node_restaurant.db`
+- Session-based authentication with login/signup
+- Guest cart support saved in session
+- Table booking and feedback submission
+- Seeded menu categories, menu items, about content, and a default admin user
 
-Admins can add, edit, and delete menu items.
-Users can browse the menu, place food orders, or book a table for a specific time.
-There is a user authentication system: users sign up, log in, and manage their orders and reservations.
-Reservation feature allows customers to pick a date/time and reserve a table.
-Order feature allows users to pick items from the menu and place orders.
+## Quick Start
+1. Install dependencies
+   ```bash
+   npm install
+   ```
+2. Start the application
+   ```bash
+   npm start
+   ```
+3. Open in browser
+   ```
+   http://localhost:3000
+   ```
 
-#Features#
-Admin Panel
-Full CRUD operations for menu items
-Management of reservations and orders
+## Default credentials
+Use this default user to log in quickly:
+- Username: `admin`
+- Password: `admin123`
 
+## Available pages
+- `/` - Home
+- `/menu` - Browse menu and add items to cart
+- `/about` - About page
+- `/book_table` - Book a table
+- `/feedback` - Submit feedback
+- `/login` - Login / signup page
 
-**User Features
-**
-Registration / Login / Logout
-Browsing the menu
-Placing orders (with quantities)
-Table reservation for a chosen slot
-Reservation System
-Users can reserve tables for a specific date and time
-Admins can view and manage reservations
-Order Management
-Users can add items to a cart
-Submit order — order status can be tracked
-Admin sees incoming orders and processes them
+## API Endpoints
+- `GET /api/categories` - category list
+- `GET /api/items` - menu items
+- `GET /api/about` - about content
+- `POST /api/book-table` - create booking
+- `POST /api/feedback` - submit feedback
+- `POST /api/signup` - create user
+- `POST /api/login` - login user
+- `POST /api/logout` - logout user
+- `POST /api/add-to-cart` - add item to session cart
+- `GET /api/cart` - view cart items
+- `GET /api/user` - current authenticated user
 
+## Testing
+Run the basic DB seeding check:
+```bash
+npm test
+```
 
-
-Tech Stack
-
-Backend: Django (Python)
-Database: (likely Django's default or any configured DB)
-Frontend: Django templates (HTML, CSS, Bootstrap or custom)
-Authentication: Django’s built-in user auth system
-
-
-
-
-
-
-OUTPUT:
-<img width="1821" height="947" alt="Screenshot 2025-11-17 124528" src="https://github.com/user-attachments/assets/ab6551bb-8398-46eb-ae85-4af40022fe4a" />
-
-
-
+## Notes
+- The database is initialized automatically when the server starts.
+- To enable booking confirmation emails, set `EMAIL_HOST`, `EMAIL_USER`, `EMAIL_PASS`, and optionally `EMAIL_FROM` in a `.env` file.
+- If you use `npm run dev`, `nodemon` is installed as a dev dependency.
